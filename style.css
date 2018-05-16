@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+html, body, body *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', Helvetica, sans-serif;
+    outline: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(200, 0%, 50%); 
+}
+.calculator-body{
+    max-width: 400px;
+    max-height: 500px;
+    padding: 2% 3%;
+    background:hsl(200, 20%, 15%); 
+    width: 100%;
+    height: 100%;
+    border: 2px solid hsl(200, 0%, 15%);
+    border-radius: 15px;
+    box-shadow: 5px 10px 15px hsla(200, 0%, 0%, 0.5), inset 0px -5px 10px hsla(0, 4%, 27%, 0.7);
+}
+.title{
+    text-align: center;
+    color: hsla(200, 0%, 90%, 0.8);
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+}
+.visor{
+    padding-top: 10px;
+    width: 100%;
+    height: 3rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 2rem;
+    text-align: right;
+    background: hsl(200, 0%, 50%);    
+}
+
+.pad{
+    margin-top: 15px;
+    height: 80%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 0.5rem;
+    grid-template-areas: 'ac ce mul div''seven eigth nine sum' 'four five six subt' 'one two three equal' 'zer zer doty equal'
+}
+button{
+    color: hsla(200, 0%, 90%, 0.8);
+    border-radius: 15px;
+    font-size: 1.5rem;
+    border: 0px;
+    box-shadow: 0px 2px 1px black, inset 0px -2px 5px black;
+}
+button[data-type="num"]{
+    background: hsla(100, 0%, 45%, 0.7);
+}
+
+button[data-type="op"]{
+    background: hsla(200, 100%, 15%, 0.7);
+}
+
+button.clear{
+    background: hsla(339, 100%, 25%, 0.7);
+}
+
+#equal{
+    background: hsla(100, 100%, 15%, 0.7);
+}
+
+button:active{
+    box-shadow: 0px 1px, inset 0px -2px 5px;
+}
+.number1{
+    grid-area: one;
+}
+.number2{
+    grid-area: two;
+}
+.number3{
+    grid-area: three;
+}
+.number4{
+    grid-area: four;
+}
+.number5{
+    grid-area: five;
+}
+.number6{
+    grid-area: six;
+}
+.number7{
+    grid-area: seven;
+}
+.number8{
+    grid-area: eigth;
+}
+.number9{
+    grid-area: nine;
+}
+.number0{
+    grid-area: zer;
+}
+.numberDot{
+    grid-area: doty;
+}
+.opSum{
+    grid-area: sum;
+}
+.opSub{
+    grid-area: subt;
+}
+.opMul{
+    grid-area: mul;
+}
+.opDiv{
+    grid-area: div;
+}
+#equal{
+    grid-area: equal;
+}
