@@ -35,10 +35,10 @@ function evalute() {
 
 function clearExp(){
     if(this.dataset.type === 'exp'){
-        while(exp[exp.length - 1] !== '+' && exp[exp.length - 1] !== '-' && exp[exp.length - 1] !== '*' && exp[exp.length - 1] !== '/'){
+        while(exp[exp.length - 1] !== '+' && exp[exp.length - 1] !== '-' && exp[exp.length - 1] !== '*' && exp[exp.length - 1] !== '/' && exp.length){
             exp.pop();
         }
-        document.querySelector('.visor').innerHTML = `${exp.join('')}`;
+        document.querySelector('.visor').innerHTML = exp.length ? `${exp.join('')}` : '0';
     }else if(this.dataset.type === 'all'){
         exp = [];
         document.querySelector('.visor').innerHTML = '0';
