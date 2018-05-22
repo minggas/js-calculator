@@ -8,6 +8,9 @@ const clear = document.querySelectorAll('.pad .clear').forEach(btn => btn.addEve
 const equal = document.getElementById('equal').addEventListener('click', evalute);
 
 function insertNum() {
+    if(result){
+        result = 0;
+    }
     exp.push(this.innerHTML);
     document.querySelector('.visor').innerHTML = `${exp.join('')}`;
     opInUse = false;
@@ -26,7 +29,7 @@ function insertOp(){
 }
 
 function evalute() {
-    if(exp[exp.length - 1] !== '+' && exp[exp.length - 1] !== '-' && exp[exp.length - 1] !== '*' && exp[exp.length - 1] !== '/'){        
+    if(/[0-9]/.test(exp[exp.length - 1])){        
         result = eval(exp.join(''));
         document.querySelector('.visor').innerHTML = result;
         exp = [];        
@@ -35,12 +38,13 @@ function evalute() {
 
 function clearExp(){
     if(this.dataset.type === 'exp'){
-        while(exp[exp.length - 1] !== '+' && exp[exp.length - 1] !== '-' && exp[exp.length - 1] !== '*' && exp[exp.length - 1] !== '/' && exp.length){
+        while(/[0-9]/.test(exp[exp.length - 1])){
             exp.pop();
         }
-        document.querySelector('.visor').innerHTML = exp.length ? `${exp.join('')}` : '0';
+        document.querySelector('.visor').innerHTML = `${exp.join('')}`;
     }else if(this.dataset.type === 'all'){
         exp = [];
+        result = 0;
         document.querySelector('.visor').innerHTML = '0';
     }
     
