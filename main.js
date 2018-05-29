@@ -44,7 +44,8 @@ function clearExp(){
         document.querySelector('.visor').innerHTML = `${exp.join('')}`;
     }else if(this.dataset.type === 'all'){
         exp = [];
-        result = 0;
+        result = null;
+        opInUse = true;
         document.querySelector('.visor').innerHTML = '0';
     }
     
